@@ -23,12 +23,8 @@ class ArtistsController < ApplicationController
   end
 
   def update
-    @artist.update(artist_params)
-
-    if @artist.save
-      redirect_to @artist
-    else
-      render :edit
+    if !!@artist.update(artist_params) then redirect_to @artist
+    else render :edit
     end
   end
 
